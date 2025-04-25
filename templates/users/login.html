@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   {% load static %}
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
   <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
   <link rel="stylesheet" href="{% static 'css/login.css' %}" />
 </head>
+
 <body>
 
 
@@ -20,10 +22,16 @@
     <div class="container">
       <div class="left-panel">
         <div class="overlay">
-          <div class="logo">GREENVEST</div>
+          {% load static %}
+
+<div class="logo" style="position: absolute; top: 30px; left: 40px;">
+  <img src="{% static 'images/tractor.png' %}" alt="Farm Sync Logo" style="height: 40px; width: auto;" />
+</div>
+
+          
           <div class="caption">
-            <h2>Welcome Back</h2>
-            <h2>Login to continue</h2>
+            <h2>Hi amigos</h2>
+            <h2>Try something new</h2>
           </div>
         </div>
       </div>

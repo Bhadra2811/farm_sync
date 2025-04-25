@@ -1,3 +1,5 @@
+
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -5,12 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Farms</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/farm_list.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">  
 </head>
+
 <body>
 
     <div class="page-transition-overlay">

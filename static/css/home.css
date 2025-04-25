@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-image: url('../images/bg4.jpg');
+    background-image: url('../images/bg1.png');
     backdrop-filter: blur(3px);
     background-size: cover;
     background-position: center;
@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Poppins", sans-serif;
-    color: white;
+    color: #68bf8f;
     text-align: center;
 }
 
@@ -59,17 +59,17 @@ p a {
     display: inline-block;
     padding: 5px 25px;
     background-color: #d4ff0000;
-    color: #e5e7e9;
+    color: #145431;
     text-decoration: none;
     border-radius: 20px;
-    border: #e5e7e9 solid 1.5px;
+    border: #145431 solid 1.5px;
     font-size: 1rem;
     transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
 p a:hover {
-    background-color: #e5e7e9;
-    border: #e5e7e900 solid 1px;
+    background-color: #145431;
+    border: #14543100 solid 1px;
     color: #000;
     transform: scale(1.05);
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Manager Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="{% static 'css/manager_dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
@@ -17,7 +18,7 @@
 
     <div class="content-container">
         <header>
-            <div class="header-left">Greenvest</div>
+            <div class="header-left">Farm Sync</div>
             <nav class="header-center">
                 <a href="{% url 'farm-list' %}">Farms</a>
                 <a href="{% url 'plot-list' %}">Plots</a>

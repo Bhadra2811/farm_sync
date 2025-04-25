@@ -6,13 +6,13 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    background-color: #022e16;
     color: #333;
 }
 
 header {
     background-color: #ffffff00;
-    color: #474747;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +25,7 @@ header {
 .logout-button {
     background: none;
     border: none;
-    color: #ff5757;
+    color: #ffffff;
     font-weight: 600;
     cursor: pointer;
     padding: 0;
@@ -47,7 +47,7 @@ header {
 
 .header-center a {
     text-decoration: none;
-    color: #414141;
+    color: #f8f8f8;
     font-weight: 500;
     font-size: 1rem;
 }
@@ -109,7 +109,7 @@ header {
 
 .card strong {
     font-size: 1.6rem;
-    color: #27ae60;
+    color: #cac709;
 }
 
 h2 {
@@ -127,7 +127,7 @@ li {
     background: #f9f9f9;
     padding: 10px 15px;
     margin-bottom: 10px;
-    border-left: 5px solid #27ae60;
+    border-left: 5px solid #103d23;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }

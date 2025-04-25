@@ -8,7 +8,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f9f9f9;
+    background-color: #022e16;
     color: #121212;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
 
 header {
     background-color: #ffffff00;
-    color: #474747;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,7 @@ header {
 
 .header-center a {
     text-decoration: none;
-    color: #414141;
+    color: #ffffff;
     font-weight: 500;
     font-size: 1rem;
 }
@@ -56,7 +56,7 @@ header {
 .logout-button {
     background: none;
     border: none;
-    color: #ff5757;
+    color:  #ffffff;
     font-weight: 600;
     cursor: pointer;
     padding: 0;
@@ -90,7 +90,7 @@ input[type="text"] {
     border: none;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #e5e7e9;
+    background-color:  #eaebea;
     color: #414141;
     font-size: 1rem;
     width: 300px;
@@ -98,7 +98,7 @@ input[type="text"] {
 }
 
 button, a[href*="Clear"], a[href*="farm-add"], .add-btn {
-    background-color: #207044;
+    background-color: #f0bd32;
     color: #fff;
     border: none;
     padding: 0.75rem 1.2rem;
@@ -115,7 +115,7 @@ button, a[href*="Clear"], a[href*="farm-add"], .add-btn {
 }
 
 .add-btn:hover {
-    background-color: #1a5e39;
+    background-color: #070605;
 }
 
 button {
@@ -125,7 +125,7 @@ button {
 }
 
 button:hover, a[href*="Clear"]:hover, a[href*="farm-add"]:hover {
-    background-color: #1a5e39;
+    background-color: #040404;
 }
 
 table {
@@ -139,7 +139,7 @@ table {
 th {
     text-align: left;
     font-size: 0.875rem;
-    color: #3a3a3a;
+    color: #f9f2f2;
     padding: 0.75rem 1rem;
     border: #a3000000;
 }
@@ -148,14 +148,14 @@ td {
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
-    border: #20704400;
+    border: #01481f00;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     font-size: 0.95rem;
     vertical-align: middle;
 }
 
 td a {
-    color: #207044;
+    color: #f7f8f8;
     text-decoration: none;
     font-weight: 500;
 }

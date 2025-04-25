@@ -9,7 +9,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: white;
+    background-color: #68bf8f;
     color: #121212;
     height: 100vh;
 }
@@ -21,14 +21,14 @@ body {
 
 .left-panel {
     flex: 1;
-    background: url('../images/bg2.jpg') no-repeat center center/cover;
+    background: url('../images/bg2.png') no-repeat center center/cover;
     filter: grayscale(50%);
     position: relative;
     height: 97%;
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 10px;
-    color: #e5e7e9;
+    color: #eaebea;
 }
 
 .overlay {
@@ -119,7 +119,7 @@ textarea {
     margin-bottom: 0px;
     border: none;
     border-radius: 6px;
-    background-color: #e5e7e9;
+    background-color: #145431;
     color: #414141;
 }
 

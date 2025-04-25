@@ -9,7 +9,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: white;
+    background-color: #1e6a40;
     color: #121212;
 }
 
@@ -20,14 +20,14 @@ body {
 
 .left-panel {
     flex: 1;
-    background: url('../images/bg2.jpg') no-repeat center center/cover;
+    background: url('../images/bg2.png') no-repeat center center/cover;
     filter: grayscale(50%);
     position: relative;
     height: 97vh;
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 10px;
-    color: #e5e7e9;
+    color: #d0fae3;
 }
 
 .overlay {
@@ -79,7 +79,7 @@ body {
 }
 
 .form-container a {
-    color: #2aa76f;
+    color: #1a4e2b;
     text-decoration: none;
 }
 
@@ -91,7 +91,7 @@ input[type="text"] {
     margin-bottom: 15px;
     border: none;
     border-radius: 6px;
-    background-color: #e5e7e9;
+    background-color: #e4f2eb;
     color: #414141;
 }
 
