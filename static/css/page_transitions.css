@@ -1,4 +1,4 @@
-/* Page Transitions CSS */
+
 .page-transition-overlay {
     position: fixed;
     top: 0;
@@ -20,7 +20,6 @@
     pointer-events: all;
 }
 
-/* Loading spinner */
 .spinner {
     width: 40px;
     height: 40px;
@@ -35,7 +34,6 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Content transition */
 .content-container {
     opacity: 0;
     transition: opacity 0.4s ease;

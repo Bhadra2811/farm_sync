@@ -14,7 +14,7 @@ body {
     align-items: center;
     font-family: "Poppins", sans-serif;
     color: white;
-    text-align: center; /* Centers inline content */
+    text-align: center;
 }
 
 #hero {
@@ -44,7 +44,7 @@ h3 {
 p {
     margin-top: -3px;
     max-width: 900px;
-    text-align: center; /* Ensures text stays centered */
+    text-align: center;
 }
 
 #description {

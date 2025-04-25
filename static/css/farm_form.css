@@ -11,12 +11,12 @@ body {
     font-family: "Poppins", sans-serif;
     background-color: white;
     color: #121212;
-    height: 100vh; /* Ensures the body takes up the full viewport height */
+    height: 100vh;
 }
 
 .container {
     display: flex;
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
 }
 
 .left-panel {

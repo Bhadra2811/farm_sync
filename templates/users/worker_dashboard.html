@@ -1,2 +1,60 @@
-<h1>Welcome {{ user.username }} - You are a {{ user.get_role_display }}</h1>
-<a href="{% url 'logout' %}">Logout</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Worker Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/manager_dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+</head>
+<body>
+
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="content-container">
+        <header>
+            <div class="header-left">Greenvest</div>
+            <nav class="header-center">
+            </nav>
+            <div class="header-right">
+                Welcome, {{ user.username }} |
+                <form method="post" action="{% url 'logout' %}" class="no-transition" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-section container-box">
+
+                <div class="card-container">
+                    <div class="card">Assigned Plots<br><strong>{{ plots|length }}</strong></div>
+                </div>
+
+                <h2>Plot Assignments</h2>
+                <ul>
+                    {% for plot in plots %}
+                        <li>
+                            {{ plot.crop_type }} in {{ plot.farm.name }}<br>
+                            {{ plot.farm.location }}
+                        </li>
+                    {% empty %}
+                        <li>No plots assigned yet.</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+            <div class="right-section container-box">
+                <h2>Note</h2>
+                <p>This is your worker dashboard. You’ll see all the plots assigned to you. Tasks and updates will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>

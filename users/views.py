@@ -43,7 +43,7 @@ def manager_dashboard(request):
     plots = Plot.objects.filter(farm__owner=request.user)
     total_farms = farms.count()
     total_plots = plots.count()
-    total_crops = plots.exclude(crop_type='').count()  # optional
+    total_crops = plots.exclude(crop_type='').count()
     recent_farms = farms.order_by('-id')[:5]
     recent_plots = plots.order_by('-id')[:5]
     context = {
@@ -68,7 +68,6 @@ def home(request):
     return render(request, 'users/home.html')
 
 def register(request):
-    # Clear any logout messages first
     storage = messages.get_messages(request)
     new_messages = []
     for message in storage:
@@ -76,7 +75,6 @@ def register(request):
             new_messages.append(message)
     storage.used = True
     
-    # Re-add messages that weren't about logging out
     for message in new_messages:
         messages.add_message(request, message.level, message.message)
     
@@ -100,3 +98,10 @@ def custom_logout(request):
     logout(request)
     messages.success(request, "You have been successfully logged out.")
     return redirect('login')
+
+@login_required
+def worker_dashboard(request):
+    # Show all farms/plots (or filter in future for assigned worker)
+    plots = Plot.objects.all()
+    return render(request, 'users/worker_dashboard.html', {'plots': plots})
+

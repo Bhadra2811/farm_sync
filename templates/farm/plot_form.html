@@ -6,11 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plot Form</title>
-    <!-- Link to the static CSS file -->
     <link rel="stylesheet" href="{% static 'css/farm_form.css' %}">
     <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
     <style>
-        /* Additional styles for select and date inputs */
+
         select, input[type="date"] {
             width: 100%;
             padding: 15px;
@@ -20,10 +19,9 @@
             background-color: #e5e7e9;
             color: #414141;
             font-family: "Poppins", sans-serif;
-            appearance: none; /* Removes default browser styling */
+            appearance: none; 
         }
         
-        /* Custom styling for dropdown arrow */
         select {
             background-image: url("data:image/svg+xml;utf8,<svg fill='%23414141' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
             background-repeat: no-repeat;
@@ -31,7 +29,6 @@
             padding-right: 30px;
         }
         
-        /* Fix for date input appearance */
         input[type="date"]::-webkit-calendar-picker-indicator {
             filter: invert(0.5);
             opacity: 0.8;
@@ -41,15 +38,14 @@
 </head>
 <body>
 
-    <!-- Page Transition Overlay -->
+
     <div class="page-transition-overlay">
         <div class="spinner"></div>
     </div>
 
-    <!-- Page Content -->
+
     <div class="content-container">
         <div class="container">
-            <!-- Left Panel with Image -->
             <div class="left-panel">
                 <div class="overlay">
                     <div class="logo">
@@ -61,7 +57,6 @@
                 </div>
             </div>
 
-            <!-- Right Panel with Form -->
             <div class="right-panel">
                 <div class="go-back-link">
                     <a href="javascript:history.back()">Go Back</a>
@@ -108,7 +103,6 @@
         </div>
     </div>
 
-    <!-- Page Transitions Script -->
     <script src="{% static 'js/page_transitions.js' %}"></script>
 
 </body>

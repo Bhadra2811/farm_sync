@@ -14,7 +14,6 @@ body {
     padding: 0;
 }
 
-/* Header and Navigation Styles */
 header {
     background-color: #ffffff00;
     color: #474747;
@@ -66,7 +65,6 @@ header {
     text-decoration: underline;
 }
 
-/* Main Content Area */
 .main-content {
     max-width: 1400px;
     margin: 30px auto;
