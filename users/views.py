@@ -101,7 +101,6 @@ def custom_logout(request):
 
 @login_required
 def worker_dashboard(request):
-    # Show all farms/plots (or filter in future for assigned worker)
     plots = Plot.objects.all()
     return render(request, 'users/worker_dashboard.html', {'plots': plots})
 
