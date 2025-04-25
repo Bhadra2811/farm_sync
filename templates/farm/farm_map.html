@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farm Location - {{ farm.name }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+    
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <h2>Farm Location: {{ farm.name }}</h2>
+        <p><strong>Coordinates:</strong> {{ farm.latitude }}, {{ farm.longitude }}</p>
+
+        <div id="map"></div>
+
+        <!-- Hidden JSON containing farm data -->
+        <script id="farm-data" type="application/json">
+        {
+            "lat": "{{ farm.latitude|floatformat:'6' }}",
+            "lng": "{{ farm.longitude|floatformat:'6' }}",
+            "name": "{{ farm.name|escapejs }}",
+            "location": "{{ farm.location|escapejs }}"
+        }
+        </script>
+    </div>
+
+    <!-- Leaflet + Custom JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="{% static 'js/farm_map.js' %}"></script>
+
+    <!-- Page Transitions Script -->
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+
+</body>
+</html>

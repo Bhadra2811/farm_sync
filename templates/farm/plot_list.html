@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Plots</title>
+    <link rel="stylesheet" href="{% static 'css/farm_list.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <header>
+            <div class="header-left">YOUR PLOTS</div>
+            <nav class="header-center">
+                <a href="{% url 'manager-dashboard' %}">Dashboard</a>
+                <a href="{% url 'farm-list' %}">Farms</a>
+            </nav>
+            <div class="header-right">
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <form method="get">
+                {% csrf_token %}
+                <input type="text" name="q" placeholder="Search by crop or soil type" value="{{ query }}">
+                <button type="submit">Search</button>
+                <a href="{% url 'plot-add' %}" class="add-btn">Add Plot</a>
+            </form>
+
+            <table border="1">
+                <tr>
+                    <th>Farm</th>
+                    <th>Size</th>
+                    <th>Soil</th>
+                    <th>Crop</th>
+                    <th>Planting</th>
+                    <th>Harvesting</th>
+                    <th>Actions</th>
+                </tr>
+                {% for plot in plots %}
+                <tr>
+                    <td>{{ plot.farm.name }}</td>
+                    <td>{{ plot.size }}</td>
+                    <td>{{ plot.get_soil_type_display }}</td>
+                    <td>{{ plot.crop_type }}</td>
+                    <td>{{ plot.planting_date }}</td>
+                    <td>{{ plot.harvesting_date }}</td>
+                    <td>
+                        <a href="{% url 'plot-edit' plot.pk %}">Edit</a> |
+                        <a href="{% url 'plot-delete' plot.pk %}">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7">No plots found.</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <!-- Page Transitions Script -->
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+
+</body>
+</html>

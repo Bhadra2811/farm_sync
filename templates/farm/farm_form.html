@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Form</title>
+    <link rel="stylesheet" href="{% static 'css/farm_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+</head>
+<body>
+
+    <!-- Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <div class="container">
+            <!-- Left Panel with Image -->
+            <div class="left-panel">
+                <div class="overlay">
+                    <div class="logo">
+                        GREENVEST
+                    </div>
+                    <div class="caption">
+                        <h2>Add Your Farm Here</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel with Form -->
+            <div class="right-panel">
+                <div class="go-back-link">
+                    <a href="javascript:history.back()">Go Back</a>
+                </div>
+                <div class="form-container">
+                    <h2>Farm Form</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            {{ form.name.errors }}
+                            {{ form.name }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.location.errors }}
+                            {{ form.location }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.latitude.errors }}
+                            {{ form.latitude }}
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.longitude.errors }}
+                            {{ form.longitude }}
+                        </div>
+                    
+                        <button type="submit" class="create-btn">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transition Script -->
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>

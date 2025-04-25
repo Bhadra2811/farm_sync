@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}" />
+</head>
+<body>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content-container">
+    <div class="container">
+      <div class="left-panel">
+        <div class="overlay">
+          <div class="logo">GREENVEST</div>
+          <div class="caption">
+            <h2>A Project For</h2>
+            <h2>Better Farming</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="form-container">
+          <h2>Create an account</h2>
+          <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+          {% if messages %}
+          <div class="messages">
+              {% for message in messages %}
+              {% if message.tags != 'success' or 'logged out' not in message|lower %}
+              <div class="message {{ message.tags }}">{{ message }}</div>
+              {% endif %}
+              {% endfor %}
+          </div>
+          {% endif %}
+
+          <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+              <div class="form-group">
+                {{ field }}
+                {% if field.errors %}
+                  <div class="error">{{ field.errors|striptags }}</div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          
+            <button class="create-btn" type="submit">Create account</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Transitions Script -->
+  <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>

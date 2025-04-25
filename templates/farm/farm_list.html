@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Farms</title>
+    <link rel="stylesheet" href="{% static 'css/farm_list.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <header>
+            <div class="header-left">YOUR FARMS</div>
+            <nav class="header-center">
+                <a href="{% url 'manager-dashboard' %}">Dashboard</a>
+                <a href="{% url 'plot-list' %}">Plots</a>
+            </nav>
+            <div class="header-right">
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <form method="get">
+                {% csrf_token %}
+                <input type="text" name="q" placeholder="Search by name or location" value="{{ query }}">
+                <button type="submit">Search</button>
+                <a href="{% url 'farm-add' %}" class="add-btn">Add Farm</a>
+            </form>
+
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Lat</th>
+                    <th>Lng</th>
+                    <th>Actions</th>
+                </tr>
+                {% for farm in farms %}
+                <tr>
+                    <td>{{ farm.name }}</td>
+                    <td>{{ farm.location }}</td>
+                    <td>{{ farm.latitude }}</td>
+                    <td>{{ farm.longitude }}</td>
+                    <td>
+                        <a href="{% url 'farm-edit' farm.pk %}">Edit</a> |
+                        <a href="{% url 'farm-delete' farm.pk %}">Delete</a> |
+                        <a href="{% url 'farm-map' farm.pk %}">View Map</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No farms found.</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <!-- Page Transitions Script -->
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+
+</body>
+</html>

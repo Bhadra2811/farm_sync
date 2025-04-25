@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="{% static 'css/manager_dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content-container">
+        <header>
+            <div class="header-left">Greenvest</div>
+            <nav class="header-center">
+                <a href="{% url 'farm-list' %}">Farms</a>
+                <a href="{% url 'plot-list' %}">Plots</a>
+            </nav>
+            <div class="header-right">
+                Welcome, {{ user.username }} | 
+                <form method="post" action="{% url 'logout' %}" class="no-transition" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-section container-box">
+                <div class="card-container">
+                    <div class="card">Total Farms<br><strong>{{ total_farms }}</strong></div>
+                    <div class="card">Total Plots<br><strong>{{ total_plots }}</strong></div>
+                    <div class="card">Total Crops<br><strong>{{ total_crops }}</strong></div>
+                </div>
+
+                <h2>Recent Farms</h2>
+                <ul>
+                    {% for farm in recent_farms %}
+                        <li>{{ farm.name }} - {{ farm.location }}</li>
+                    {% empty %}
+                        <li>No farms found.</li>
+                    {% endfor %}
+                </ul>
+
+                <h2>Recent Plots</h2>
+                <ul>
+                    {% for plot in recent_plots %}
+                        <li>{{ plot.crop_type }} in {{ plot.farm.name }}</li>
+                    {% empty %}
+                        <li>No plots found.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="right-section container-box">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script id="farm-map-data" type="application/json">
+    [
+        {% for farm in recent_farms %}
+            {
+                "lat": {{ farm.latitude|floatformat:"6" }},
+                "lng": {{ farm.longitude|floatformat:"6" }},
+                "name": "{{ farm.name|escapejs }}",
+                "location": "{{ farm.location|escapejs }}"
+            }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+    </script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="{% static 'js/dashboard_map.js' %}"></script>
+    <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+</head>
+<body>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content-container">
+    <div class="container">
+      <div class="left-panel">
+        <div class="overlay">
+          <div class="logo">GREENVEST</div>
+          <div class="caption">
+            <h2>Welcome Back</h2>
+            <h2>Login to continue</h2>
+          </div>
+        </div>
+      </div>
+      <div class="right-panel">
+        <div class="form-container">
+          <h2>Login</h2>
+          <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+          <form method="post" autocomplete="off">
+            {% csrf_token %}
+         
+            <input type="text" name="username" placeholder="Username" autocomplete="off" value="{{ form.username.value|default:'' }}" />
+            {% if form.username.errors %}
+              <p style="color:red;">{{ form.username.errors }}</p>
+            {% endif %}
+         
+            <input type="password" name="password" placeholder="Password" autocomplete="new-password" />
+            {% if form.password.errors %}
+              <p style="color:red;">{{ form.password.errors }}</p>
+            {% endif %}
+            <div class="terms" style="justify-content: space-between;">
+              <label><input type="checkbox" name="remember_me" {% if form.remember_me.value %}checked{% endif %}/> Remember me</label>
+              <a href="#" style="font-size: 0.8rem;">Forgot password?</a>
+            </div>
+            <button class="create-btn" type="submit">Login</button>
+            <div class="divider">or</div>
+            <div class="social-buttons">
+              <button type="button" class="google" onclick="window.location.href='{% url 'home' %}'">Home</button>
+              <button type="button" class="apple" onclick="window.location.href='{% url 'home' %}'">Worker</button>
+            </div>
+          </form>
+          {% if form.errors %}
+            <p style="color:red;">Invalid username or password</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Transitions Script -->
+  <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>

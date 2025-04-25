@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenvest</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/page_transitions.css' %}" />
+</head>
+<body>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content-container">
+    <div id="hero">
+      <h3 id="welcome">Welcome to</h3>
+      <h1>GREENVEST</h1>
+      <p id="description">
+        GreenVest provides cutting-edge farm management tools that empower agricultural professionals to make data-driven decisions while promoting sustainable practices. Our platform helps you optimize resources, increase yields, and reduce environmental impact.
+      </p>
+      <p><a href="{% url 'login' %}">Login</a></p>
+    </div>
+  </div>
+
+  <!-- Page Transitions Script -->
+  <script src="{% static 'js/page_transitions.js' %}"></script>
+</body>
+</html>
