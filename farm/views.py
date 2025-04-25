@@ -12,7 +12,8 @@ def farm_list(request):
         farms = farms.filter(
             models.Q(name__icontains=query) | models.Q(location__icontains=query)
         )
-
+        
+        
     return render(request, 'farm/farm_list.html', {'farms': farms, 'query': query})
 
 @login_required

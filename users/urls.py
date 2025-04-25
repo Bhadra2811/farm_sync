@@ -3,6 +3,7 @@ from .views import CustomLoginView, manager_dashboard, worker_dashboard, home, c
 from .views import CustomAuthToken
 from .views import register
 
+
 urlpatterns = [
     path('', home, name='home'),
     path('login/', CustomLoginView.as_view(), name='login'),

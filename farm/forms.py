@@ -1,6 +1,7 @@
 from django import forms
 from .models import Farm, Plot
 
+
 class FarmForm(forms.ModelForm):
     class Meta:
         model = Farm

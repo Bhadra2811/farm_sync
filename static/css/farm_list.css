@@ -97,6 +97,7 @@ input[type="text"] {
     max-width: 100%;
 }
 
+
 button, a[href*="Clear"], a[href*="farm-add"], .add-btn {
     background-color: #f0bd32;
     color: #fff;

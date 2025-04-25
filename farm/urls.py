@@ -5,6 +5,7 @@ from .views import (
 )
 
 
+
 urlpatterns = [
     path('', farm_list, name='farm-list'),
     path('add/', farm_add, name='farm-add'),

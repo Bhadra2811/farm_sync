@@ -78,6 +78,7 @@ def register(request):
     for message in new_messages:
         messages.add_message(request, message.level, message.message)
     
+    
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():

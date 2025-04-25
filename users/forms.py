@@ -8,6 +8,7 @@ class UserRegisterForm(UserCreationForm):
         ('worker', 'Field Worker'),
     )
 
+
     email = forms.EmailField(required=True)
     role = forms.ChoiceField(choices=ROLE_CHOICES)
 
