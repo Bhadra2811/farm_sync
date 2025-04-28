@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Manager Dashboard</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div class="bg-blue-100 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold">Total Farms</h3>
+            <p class="text-2xl">{{ total_farms }}</p>
+        </div>
+        <div class="bg-green-100 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold">Total Plots</h3>
+            <p class="text-2xl">{{ total_plots }}</p>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold">Total Crops</h3>
+            <p class="text-2xl">{{ total_crops }}</p>
+        </div>
+    </div>
+    <h2 class="text-xl font-semibold mb-2">Recent Farms</h2>
+    {% if farms %}
+        <ul class="list-disc pl-5 mb-4">
+            {% for farm in farms %}
+                <li>{{ farm.name }} ({{ farm.latitude }}, {{ farm.longitude }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-gray-500">No farms available.</p>
+    {% endif %}
+    <h2 class="text-xl font-semibold mb-2">Farm Locations</h2>
+    <div id="map" class="h-64 w-full"></div>
+    <a href="{% url 'farm_list' %}" class="mt-4 inline-block text-blue-500 hover:underline">Back to Farm List</a>
+</div>
+
+<script>
+    var map = L.map('map').setView([{% if farms %}{{ farms.first.latitude }}, {{ farms.first.longitude }}{% else %}10.7725, 76.7388{% endif %}], 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+    {% for farm in farms %}
+        L.marker([{{ farm.latitude }}, {{ farm.longitude }}]).addTo(map);
+    {% endfor %}
+</script>
+{% endblock %}

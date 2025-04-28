@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">{{ farm.name }}</h1>
+    <p><strong>Latitude:</strong> {{ farm.latitude }}</p>
+    <p><strong>Longitude:</strong> {{ farm.longitude }}</p>
+    <h2 class="text-xl font-semibold mt-4 mb-2">Plots</h2>
+    {% if plots %}
+        <ul class="list-disc pl-5">
+            {% for plot in plots %}
+                <li>{{ plot }} ({{ plot.latitude }}, {{ plot.longitude }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-gray-500">No plots found for this farm.</p>
+    {% endif %}
+    <h2 class="text-xl font-semibold mt-4 mb-2">Farm Location</h2>
+    <div id="map" class="h-64 w-full"></div>
+    <a href="{% url 'farm_list' %}" class="mt-4 inline-block text-blue-500 hover:underline">Back to Farm List</a>
+</div>
+
+<script>
+    var map = L.map('map').setView([{{ farm.latitude }}, {{ farm.longitude }}], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+    L.marker([{{ farm.latitude }}, {{ farm.longitude }}]).addTo(map);
+    {% for plot in plots %}
+        L.marker([{{ plot.latitude }}, {{ plot.longitude }}]).addTo(map);
+    {% endfor %}
+</script>
+{% endblock %}
