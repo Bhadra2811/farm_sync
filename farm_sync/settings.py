@@ -50,7 +50,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'farm_sync_db',
         'USER': 'root',
-        'PASSWORD': 'Admin123*',  # Replace with your actual MySQL password
+        'PASSWORD': 'Admin123*',
         'HOST': 'localhost',
         'PORT': '3306',
     }

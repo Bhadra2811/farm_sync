@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
@@ -70,113 +70,6 @@ p a {
 p a:hover {
     background-color: #145431;
     border: #14543100 solid 1px;
-    color: #000;
-    transform: scale(1.05);
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h3, h1, #description, p a {
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-}
-
-h3 {
-    animation-delay: 0.2s;
-}
-
-h1 {
-    animation-delay: 0.5s;
-}
-
-#description {
-    animation-delay: 0.8s;
-}
-
-p a {
-    animation-delay: 1.1s;
-} */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-image: url('../images/bg4.jpg');
-    backdrop-filter: blur(3px);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Poppins", sans-serif;
-    color: white;
-    text-align: center;
-}
-
-#hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: -40px;
-}
-
-h1 {
-    font-size: 6rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-#welcome {
-    letter-spacing: 6px;
-    font-weight: 300;
-    margin-bottom: -90px;
-}
-
-p {
-    margin-top: -3px;
-    max-width: 900px;
-    text-align: center;
-}
-
-#description {
-    font-size: 0.9rem;
-    margin-top: -30px;
-    margin-bottom: 20px;
-    font-weight: 300;
-    color: #f1f1f1;
-}
-
-p a {
-    display: inline-block;
-    padding: 5px 25px;
-    background-color: #d4ff0000;
-    color: #e5e7e9;
-    text-decoration: none;
-    border-radius: 20px;
-    border: #e5e7e9 solid 1.5px;
-    font-size: 1rem;
-    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, border 0.4s ease-in-out, transform 0.4s ease-in-out;
-}
-
-p a:hover {
-    background-color: #e5e7e9;
-    border: #e5e7e900 solid 1px;
     color: #000;
     transform: scale(1.05);
 }
